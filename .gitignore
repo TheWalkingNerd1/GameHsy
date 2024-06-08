@@ -1,0 +1,4 @@
+gdextension_cpp_example/.sconsign.dblite
+gdextension_cpp_example/SConstruct
+Game/bin
+Game/.godot/*
