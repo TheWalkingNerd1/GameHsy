@@ -10,7 +10,32 @@ config_version=5
 
 [application]
 
-config/name="Game"
-run/main_scene="res://main.tscn"
-config/features=PackedStringArray("4.2", "Forward Plus")
+config/name="LittleActionRPG"
+run/main_scene="res://scenes/village/village.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneChanger="*res://scripts/autoloads/scene_changer.gd"
+
+[display]
+
+window/size/resizable=false
+window/stretch/scale=5.0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdscript_formatter/plugin.cfg")
+
+[layer_names]
+
+2d_physics/layer_1="玩家"
+2d_physics/layer_2="敌人"
+2d_physics/layer_3="障碍"
+2d_physics/layer_4="门"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

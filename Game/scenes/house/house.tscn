@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjcc6tqewa021"]
+
+[ext_resource type="TileSet" uid="uid://b1kpygwtxoulg" path="res://assets/tileset/terrain.tres" id="1_8y3tw"]
+[ext_resource type="PackedScene" uid="uid://nbxbpogbj57w" path="res://scenes/portal/portal.tscn" id="2_plaev"]
+[ext_resource type="PackedScene" uid="uid://dtt7ymlb0a626" path="res://scenes/player/player.tscn" id="4_gye4f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wayt4"]
+size = Vector2(48, 4)
+
+[node name="House" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+texture_filter = 1
+tile_set = ExtResource("1_8y3tw")
+format = 2
+layer_0/name = "ground"
+layer_0/tile_data = PackedInt32Array(393216, 0, 3, 458752, 0, 3, 524288, 0, 4, 524289, 65536, 4, 524290, 131072, 4, 524291, 131072, 4, 524292, 131072, 4, 524293, 65536, 4, 524294, 65536, 4, 393217, 65536, 3, 458753, 65536, 3, 393218, 65536, 3, 458754, 65536, 3, 393219, 65536, 3, 458755, 65536, 3, 393220, 65536, 3, 458756, 65536, 3, 393221, 65536, 3, 458757, 65536, 3, 393222, 65536, 3, 458758, 65536, 3, 327681, 65536, 3, 327682, 65536, 3, 327683, 65536, 3, 327684, 65536, 3, 327685, 65536, 3, 327686, 65536, 3, 327680, 0, 2, 524295, 327680, 4, 393223, 327680, 3, 458759, 327680, 3, 327687, 327680, 2)
+layer_1/name = "wall"
+layer_1/y_sort_enabled = true
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array(196608, 196608, 1, 196609, 196608, 1, 196610, 196608, 1, 196611, 196608, 1, 196612, 196608, 1, 196613, 196608, 1, 196614, 196608, 1, 196615, 196608, 1, 262147, 196608, 1, 262148, 196608, 1)
+layer_2/name = "decorate"
+layer_2/y_sort_enabled = true
+layer_2/z_index = 1
+layer_2/tile_data = PackedInt32Array(262150, 2228225, 28, 262146, 2097153, 28)
+
+[node name="Portal" parent="TileMap" instance=ExtResource("2_plaev")]
+position = Vector2(56, 134)
+target_scene = "res://scenes/village/village.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Portal"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_wayt4")
+debug_color = Color(0.554367, 0.399832, 0.998578, 0.42)
+
+[node name="Player" parent="." node_paths=PackedStringArray("map") instance=ExtResource("4_gye4f")]
+position = Vector2(57, 138)
+map = NodePath("../TileMap")

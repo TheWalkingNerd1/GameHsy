@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://clncd64osmh0w"]
-
-[node name="MainScene" type="MainScene"]
-
-[node name="Character" type="Character" parent="."]
-position = Vector2(61, 69)

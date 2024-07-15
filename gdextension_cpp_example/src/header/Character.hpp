@@ -2,10 +2,12 @@
 #define CHARACTER_H
 
 #include <godot_cpp/classes/character_body2d.hpp>
+#include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/classes/input.hpp>
 #include <godot_cpp/classes/collision_shape2d.hpp>
 #include <godot_cpp/classes/rectangle_shape2d.hpp>
 #include <godot_cpp/classes/sprite2d.hpp>
+#include <godot_cpp/classes/Viewport.hpp>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/variant/vector2.hpp>
 #include <godot_cpp/classes/resource_loader.hpp>
@@ -22,6 +24,9 @@ private:
 	CollisionShape2D* collision_shape;
     RectangleShape2D* rectangle_shape;
     Sprite2D* sprite;
+
+	void move(); 
+	void set_character_default();
 
 protected:
 	static void _bind_methods();

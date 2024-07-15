@@ -1,7 +1,8 @@
-#include "register_types.h"
+#include "register_types.hpp"
 
-#include "main/main_scene.h"
-#include "Character/Character.h"
+#include "header/main_scene.hpp"
+#include "header/Character.hpp"
+#include "header/animate_c.hpp"
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
@@ -16,6 +17,7 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 
 	ClassDB::register_class<MainScene>();
 	ClassDB::register_class<Character>();
+	ClassDB::register_class<Animated_C>();
 }
 
 void uninitialize_example_module(ModuleInitializationLevel p_level) {
