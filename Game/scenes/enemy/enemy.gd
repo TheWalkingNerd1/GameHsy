@@ -94,9 +94,9 @@ func _on_frame_changed() -> void:
 	if not _is_attacking():
 		return
 
-#	if hp <= 0 and not _sprite.animation == &"hurt":
-#		_sprite.play(&"hurt")
-#		return
+	if hp <= 0 and not _sprite.animation == &"hurt":
+		_sprite.play(&"hurt")
+		return
 
 	if _sprite.frame == SHOOT_FRAME and is_instance_valid(_target):
 		_shoot_pos.look_at(_target.global_position + Vector2.UP * 8)
