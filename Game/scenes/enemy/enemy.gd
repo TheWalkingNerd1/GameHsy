@@ -71,7 +71,6 @@ func _process(delta: float) -> void:
 	elif _is_attacking():
 		_sprite.flip_h = (_target.global_position - global_position).x > 0
 
-	#
 	_shoot_pos.position.x = _shoot_pos_ofs_h * (-1 if _sprite.flip_h else 1)
 
 
@@ -95,9 +94,9 @@ func _on_frame_changed() -> void:
 	if not _is_attacking():
 		return
 
-	if hp <= 0 and not _sprite.animation == &"hurt":
-		_sprite.play(&"hurt")
-		return
+#	if hp <= 0 and not _sprite.animation == &"hurt":
+#		_sprite.play(&"hurt")
+#		return
 
 	if _sprite.frame == SHOOT_FRAME and is_instance_valid(_target):
 		_shoot_pos.look_at(_target.global_position + Vector2.UP * 8)
@@ -127,6 +126,7 @@ func _on_detect_body_exited(body: PhysicsBody2D) -> void:
 	if _is_attacking():
 		await _sprite.animation_changed
 		if not _target in _detect_range.get_overlapping_bodies():
+			_target = null
 			return
 	_target = null
 

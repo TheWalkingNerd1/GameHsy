@@ -317,7 +317,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wq2sl"]
-size = Vector2(21, 13)
+size = Vector2(20, 24)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0fckp"]
 radius = 100.0
@@ -351,7 +351,7 @@ frame_progress = 1.0
 offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -6.5)
+position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_wq2sl")
 
 [node name="DetectRange" type="Area2D" parent="."]
@@ -360,13 +360,12 @@ collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectRange"]
-position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_0fckp")
 debug_color = Color(0.569463, 0.538501, 0.396057, 0.42)
 
 [node name="ShootPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-16, -13)
+position = Vector2(-12, -12)
 
 [node name="HpBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
